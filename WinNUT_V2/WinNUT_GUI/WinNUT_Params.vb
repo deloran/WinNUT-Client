@@ -44,6 +44,7 @@ Public Module WinNUT_Params
             .Add("MinimizeOnStart", vbFalse)
             .Add("CloseToTray", vbFalse)
             .Add("StartWithWindows", vbFalse)
+            .Add("MasterPassword", Cryptor.EncryptData(""))
             .Add("UseLogFile", vbFalse)
             .Add("Log Level", 1)
             .Add("ShutdownLimitBatteryCharge", 0)
@@ -60,7 +61,7 @@ Public Module WinNUT_Params
             .Add("StableOrDevBranch", 1)
             .Add("LastDateVerification", "")
         End With
-        RegBranch = "HKEY_CURRENT_USER\SOFTWARE\"
+        RegBranch = "HKEY_LOCAL_MACHINE\SOFTWARE\"
     End Sub
 
     Public Sub Load_Params()
@@ -108,6 +109,7 @@ Public Module WinNUT_Params
             .Add("MinimizeOnStart", vbFalse)
             .Add("CloseToTray", vbFalse)
             .Add("StartWithWindows", vbFalse)
+            .Add("MasterPassword", Cryptor.EncryptData(""))
         End With
         With Arr_Reg_Logging
             .Add("UseLogFile", vbFalse)
@@ -165,7 +167,7 @@ Public Module WinNUT_Params
                     My.Computer.Registry.CurrentUser.CreateSubKey(RegPath)
                     My.Computer.Registry.SetValue(WinNUT_Params.RegBranch & RegPath, RegValue.Key, RegValue.Value)
                 End If
-                If (RegValue.Key = "NutLogin" Or RegValue.Key = "NutPassword") Then
+                If (RegValue.Key = "NutLogin" Or RegValue.Key = "NutPassword" Or RegValue.Key = "MasterPassword") Then
                     Dim WinReg = My.Computer.Registry.GetValue(WinNUT_Params.RegBranch & RegPath, RegValue.Key, RegValue.Value)
                     If String.IsNullOrEmpty(WinReg) Or Not (Cryptor.IsCryptedtData(WinReg)) Then
                         WinReg = Cryptor.EncryptData("")
@@ -189,7 +191,7 @@ Public Module WinNUT_Params
                         My.Computer.Registry.CurrentUser.CreateSubKey(RegPath)
                         My.Computer.Registry.SetValue(WinNUT_Params.RegBranch & RegPath, RegValue.Key, RegValue.Value)
                     Else
-                        If (RegValue.Key = "NutLogin" Or RegValue.Key = "NutPassword") Then
+                        If (RegValue.Key = "NutLogin" Or RegValue.Key = "NutPassword" Or RegValue.Key = "MasterPassword") Then
                             My.Computer.Registry.SetValue(WinNUT_Params.RegBranch & RegPath, RegValue.Key, Cryptor.EncryptData(WinNUT_Params.Arr_Reg_Key.Item(RegValue.Key)))
                         Else
                             My.Computer.Registry.SetValue(WinNUT_Params.RegBranch & RegPath, RegValue.Key, WinNUT_Params.Arr_Reg_Key.Item(RegValue.Key))

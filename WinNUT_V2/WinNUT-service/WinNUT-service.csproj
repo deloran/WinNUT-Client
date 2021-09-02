@@ -61,6 +61,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="_install.cmd" />
+    <None Include="_uninstall.cmd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WInNUT_GUI\WinNUT-client.vbproj">

@@ -346,9 +346,28 @@ Public Class WinNUT
 
     Private Sub Menu_Settings_Click(sender As Object, e As EventArgs) Handles Menu_Settings.Click
         LogFile.LogTracing("Open Pref Gui From Menu", LogLvl.LOG_DEBUG, Me)
-        Pref_Gui.Activate()
-        Pref_Gui.Visible = True
-        HasFocus = False
+
+        Dim canOpen = False
+        Dim pwd = "" + WinNUT_Params.Arr_Reg_Key("MasterPassword")
+
+        If String.IsNullOrEmpty(pwd) Then
+            canOpen = True
+        Else
+            Dim pdb = New PasswordDialog(Me)
+            If pdb.ShowDialog() = DialogResult.OK Then
+                If pdb.Tb_Password.Text = pwd Then
+                    canOpen = True
+                Else
+                    MessageBox.Show("Wrong password!")
+                End If
+            End If
+        End If
+
+        If canOpen Then
+            Pref_Gui.Activate()
+            Pref_Gui.Visible = True
+            HasFocus = False
+        End If
     End Sub
 
     Private Sub Menu_Sys_Exit_Click(sender As Object, e As EventArgs) Handles Menu_Sys_Exit.Click

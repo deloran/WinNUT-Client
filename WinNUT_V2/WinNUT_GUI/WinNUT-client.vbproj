@@ -142,6 +142,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PasswordDialog.Designer.vb">
+      <DependentUpon>PasswordDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ToastPopup.vb" />
     <Compile Include="CProgressBar.vb">
       <SubType>Component</SubType>
@@ -229,6 +235,9 @@
     <EmbeddedResource Include="My Project\Resources.fr-FR.resx" />
     <EmbeddedResource Include="My Project\Resources.ru-RU.resx" />
     <EmbeddedResource Include="My Project\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="PasswordDialog.resx">
+      <DependentUpon>PasswordDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pref_Gui.de-DE.resx">
       <DependentUpon>Pref_Gui.vb</DependentUpon>
     </EmbeddedResource>

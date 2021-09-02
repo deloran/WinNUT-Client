@@ -54,6 +54,7 @@ Public Class Pref_Gui
             WinNUT_Params.Arr_Reg_Key.Item("MinimizeOnStart") = CB_Start_Mini.Checked
             WinNUT_Params.Arr_Reg_Key.Item("CloseToTray") = CB_Close_Tray.Checked
             WinNUT_Params.Arr_Reg_Key.Item("StartWithWindows") = CB_Start_W_Win.Checked
+            WinNUT_Params.Arr_Reg_Key.Item("MasterPassword") = Tb_MasterPassword.Text
             WinNUT_Params.Arr_Reg_Key.Item("UseLogFile") = CB_Use_Logfile.Checked
             WinNUT_Params.Arr_Reg_Key.Item("Log Level") = Cbx_LogLevel.SelectedIndex
             WinNUT_Params.Arr_Reg_Key.Item("ShutdownLimitBatteryCharge") = CInt(Tb_BattLimit_Load.Text)
@@ -149,6 +150,7 @@ Public Class Pref_Gui
             CB_Start_Mini.Checked = WinNUT_Params.Arr_Reg_Key.Item("MinimizeOnStart")
             CB_Close_Tray.Checked = WinNUT_Params.Arr_Reg_Key.Item("CloseToTray")
             CB_Start_W_Win.Checked = WinNUT_Params.Arr_Reg_Key.Item("StartWithWindows")
+            Tb_MasterPassword.Text = WinNUT_Params.Arr_Reg_Key.Item("MasterPassword")
             CB_Use_Logfile.Checked = WinNUT_Params.Arr_Reg_Key.Item("UseLogFile")
             Cbx_LogLevel.SelectedIndex = WinNUT_Params.Arr_Reg_Key.Item("Log Level")
             Tb_BattLimit_Load.Text = CStr(WinNUT_Params.Arr_Reg_Key.Item("ShutdownLimitBatteryCharge"))
