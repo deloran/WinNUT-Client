@@ -140,6 +140,10 @@ Public Module WinNUT_Params
             .Add("Update", Arr_Reg_Update)
         End With
 
+        ReloadDataFromRegistry()
+    End Sub
+
+    Public Sub ReloadDataFromRegistry()
         'Verify if non encoded Login/Password Exist
         'if not, create it
         Dim WinnutConnRegPath = WinNUT_Params.RegBranch & "WinNUT\Connexion"

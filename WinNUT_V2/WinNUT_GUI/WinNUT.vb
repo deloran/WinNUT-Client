@@ -8,10 +8,10 @@
 ' This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY
 
 Public Enum LogLvl
-    LOG_NOTICE
-    LOG_WARNING
-    LOG_ERROR
-    LOG_DEBUG
+    LOG_ERROR = 0
+    LOG_WARNING = 1
+    LOG_NOTICE = 2
+    LOG_DEBUG = 3
 End Enum
 Public Enum AppIconIdx
     IDX_BATT_0 = 1

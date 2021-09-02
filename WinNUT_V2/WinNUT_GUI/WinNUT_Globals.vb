@@ -7,7 +7,7 @@
 '
 ' This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY
 
-Module WinNUT_Globals
+Public Module WinNUT_Globals
     Public LongProgramName As String
     Public ProgramName As String
     Public ProgramVersion As String
